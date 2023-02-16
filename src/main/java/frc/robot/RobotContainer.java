@@ -27,11 +27,10 @@ public class RobotContainer {
   private static ExampleSubsystem m_ExampleSubsystem;
   
   private final DriveSubsystem m_DriveSubsystem = new DriveSubsystem();
-  private final DriveCommand m_autoCommand = new DriveCommand(m_DriveSubsystem, m_driverJoystick);
+  private final DriveCommand m_driveCommand;
 
   // Replace with CommandPS4Controller or CommandJoystick if needed
-  private final CommandXboxController m_driverController =
-      new CommandXboxController(OperatorConstants.kDriverControllerPort);
+//      new CommandXboxController(OperatorConstants.kDriverControllerPort);
 
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
@@ -39,7 +38,7 @@ public class RobotContainer {
     this.m_drivetrain = new DriveSubsystem();
     this.m_driverJoystick = new Joystick(0);
     this.m_driveCommand = new DriveCommand(this.m_drivetrain, this.m_driverJoystick);
-    configureButtonBindings();
+    configureBindings();
   }
 
   /**
@@ -63,5 +62,9 @@ public class RobotContainer {
   public Command getAutonomousCommand() {
     // An example command will be run in autonomous
     return Autos.exampleAuto(m_ExampleSubsystem);
+  }
+
+  public Command getTeleopCommand() {
+    return null;
   }
 }
