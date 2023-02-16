@@ -22,11 +22,10 @@ import edu.wpi.first.wpilibj2.command.button.Trigger;
  */
 public class RobotContainer {
   // The robot's subsystems and commands are defined here...
-  private final DriveSubsystem m_drivetrain;
   private static Joystick m_driverJoystick;
   private static ExampleSubsystem m_ExampleSubsystem;
   
-  private final DriveSubsystem m_DriveSubsystem = new DriveSubsystem();
+  private final DriveSubsystem m_drivetrain;
   private final DriveCommand m_driveCommand;
 
   // Replace with CommandPS4Controller or CommandJoystick if needed
@@ -65,6 +64,6 @@ public class RobotContainer {
   }
 
   public Command getTeleopCommand() {
-    return null;
+    return m_driveCommand;
   }
 }
